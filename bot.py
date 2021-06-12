@@ -38,8 +38,8 @@ async def 도움_명령어(ctx):
     embed = discord.Embed(title=f"명령어", descriotion=f"이진봇", Color=0xf3bb76)
     embed.add_field(name=f"",value=f"-!야", inline=False)
     embed.add_field(name=f"",value=f"-!도움", inline=False)
+    embed.add_field(name=f"",value=f"-!날씨", inline=False)
     embed.add_field(name=f"",value=f"", inline=False)
-    embed.add_field(name=f"",value=f"영어_이진수 (영어)", inline=False)
     await ctx.send(embed=embed)
 
 # @bot.command()
