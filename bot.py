@@ -21,12 +21,13 @@ async def 야(ctx):
 @bot.command()
 async def 날씨(ctx):
     if(True):
-        url = "https://www.google.com/search?q=skfTl&oq=skfTl&aqs=chrome..69i57.1453j0j7&sourceid=chrome&ie=UTF-8"
+        url = "https://weather.naver.com/today/02113128"
         result = requests.get(url)
         bs_obj = BeautifulSoup(result.content, "html.parser")
 
-        no_today = bs_obj.find("span", {"class": "wob_t TVtOme"}) # 태그 p, 속성값 no_today 찾기
-        now_price = no_today.text
+        no_today = bs_obj.find("strong", {"class": "current"}) # 태그 p, 속성값 no_today 찾기
+        blind = no_today.find("span", {"class": "blind"}) # 태그 span, 속성값 blind 찾기
+        now_price = blind.text
         await ctx.send("" + now_price + "도의 날씨라고 함")
         print("" + now_price + "도의 날씨라고 함")
 
