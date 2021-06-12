@@ -1,5 +1,7 @@
 import asyncio,discord,os
 from discord.ext import commands
+import requests
+from bs4 import BeautifulSoup
 
 game = discord.Game("!!명령어 입력")
 bot = commands.Bot(command_prefix='!!',Status=discord.Status.online,activity=game,help_command=None)
@@ -17,16 +19,28 @@ async def 야(ctx):
     await ctx.send("왜 나 바쁜거 안보임?")
 
 @bot.command()
+async def 날씨(ctx):
+    if(True):
+        url = "https://www.google.com/search?q=skfTl&oq=skfTl&aqs=chrome..69i57.1453j0j7&sourceid=chrome&ie=UTF-8"
+        result = requests.get(url)
+        bs_obj = BeautifulSoup(result.content, "html.parser")
+
+        no_today = bs_obj.find("span", {"class": "wob_t TVtOme"}) # 태그 p, 속성값 no_today 찾기
+        now_price = no_today.text
+        await ctx.send("" + now_price + "도의 날씨라고 함")
+
+@bot.command()
 async def 도움(ctx):
     await ctx.send("나 바빠 본론만 얘기해(!!도움_명령어)")
 
 @bot.command()
 async def 도움_명령어(ctx):
-    await ctx.send("""
--야
--도움
--도움_명령어
-""")
+    embed = discord.Embed(title=f"명령어", descriotion=f"이진봇", Color=0xf3bb76)
+    embed.add_field(name=f"",value=f"-!야", inline=False)
+    embed.add_field(name=f"",value=f"-!도움", inline=False)
+    embed.add_field(name=f"",value=f"", inline=False)
+    embed.add_field(name=f"",value=f"영어_이진수 (영어)", inline=False)
+    await ctx.send(embed=embed)
 
 # @bot.command()
 # async def 마피아게임(ctx):
