@@ -1,13 +1,20 @@
 import asyncio,discord,os
+from discord import message
 from discord.ext import commands
+from discord.utils import deprecated
 import requests
 from bs4 import BeautifulSoup
+import time
+import random
 
 game = discord.Game("!!명령어 입력")
 bot = commands.Bot(command_prefix='!!',Status=discord.Status.online,activity=game,help_command=None)
 mafia_game_ready = False
 mafia_gameing = False
 mafia_game_count = 0
+end_bind_ready = False
+end_binding = False
+end_bind_count = 0
 alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"," ",".","?","!","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","0","1","2","3","4","5","6","7","8","9"]
 
 @bot.event
@@ -26,8 +33,8 @@ async def 날씨(ctx):
         bs_obj = BeautifulSoup(result.content, "html.parser")
 
         no_today = bs_obj.find("strong", {"class": "current"}) # 태그 p, 속성값 no_today 찾기
-        blind = no_today.find("span", {"class": "blind"}) # 태그 span, 속성값 blind 찾기
-        now_price = blind.text
+        blind = no_today.find("span", {"class": "blind"}).get_text() # 태그 span, 속성값 blind 찾기
+        now_price = blind
         await ctx.send("" + now_price + "도의 날씨라고 함")
         print("" + now_price + "도의 날씨라고 함")
 
@@ -38,11 +45,27 @@ async def 도움(ctx):
 @bot.command()
 async def 도움_명령어(ctx):
     embed = discord.Embed(title=f"명령어", descriotion=f"이진봇", Color=0xf3bb76)
-    embed.add_field(name=f"-!야",value=f"야", inline=False)
-    embed.add_field(name=f"-!도움",value=f"딱히 쓸모없음", inline=False)
-    embed.add_field(name=f"-!날씨",value=f"날씨를 알려줌", inline=False)
-    embed.add_field(name=f"-!도움_명령어",value=f"명령어 목록", inline=False)
+    embed.add_field(name=f"-!!야",value=f"야", inline=False)
+    embed.add_field(name=f"-!!도움",value=f"딱히 쓸모없음", inline=False)
+    embed.add_field(name=f"-!!날씨",value=f"날씨를 알려줌", inline=False)
+    embed.add_field(name=f"-!!도움_명령어",value=f"명령어 목록", inline=False)
     await ctx.send(embed=embed)
+
+@bot.command()
+async def 끝말잇기_시작(ctx):
+    msg = await ctx.send("끝말잇기가 5초 뒤에 시작합니다.")
+    for i in range(0, 4):
+        time.sleep(1)
+        await msg.edit(content='끝말잇기가 ' + str(4-i) + '초 뒤에 시작합니다.')
+    time.sleep(1)
+    await msg.edit(content='끝말잇기가 시작합니다.')
+    file = open('words.txt', 'rb')
+    words = file.read()
+    print(words)
+    # random.range()
+    await ctx.send("제시어: ")
+    
+
 
 # @bot.command()
 # async def 마피아게임(ctx):
