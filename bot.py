@@ -28,6 +28,7 @@ async def 날씨(ctx):
         no_today = bs_obj.find("span", {"class": "wob_t TVtOme"}) # 태그 p, 속성값 no_today 찾기
         now_price = no_today.text
         await ctx.send("" + now_price + "도의 날씨라고 함")
+        print("" + now_price + "도의 날씨라고 함")
 
 @bot.command()
 async def 도움(ctx):
@@ -36,10 +37,10 @@ async def 도움(ctx):
 @bot.command()
 async def 도움_명령어(ctx):
     embed = discord.Embed(title=f"명령어", descriotion=f"이진봇", Color=0xf3bb76)
-    embed.add_field(name=f"",value=f"-!야", inline=False)
-    embed.add_field(name=f"",value=f"-!도움", inline=False)
-    embed.add_field(name=f"",value=f"-!날씨", inline=False)
-    embed.add_field(name=f"",value=f"", inline=False)
+    embed.add_field(name=f"-!야",value=f"야", inline=False)
+    embed.add_field(name=f"-!도움",value=f"딱히 쓸모없음", inline=False)
+    embed.add_field(name=f"-!날씨",value=f"날씨를 알려줌", inline=False)
+    embed.add_field(name=f"-!도움_명령어",value=f"명령어 목록", inline=False)
     await ctx.send(embed=embed)
 
 # @bot.command()
