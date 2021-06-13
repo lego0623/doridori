@@ -138,8 +138,11 @@ async def 도움_명령어(ctx):
     embed = discord.Embed(title=f"명령어", descriotion=f"이진봇", Color=0xf3bb76)
     embed.add_field(name=f"-!!야",value=f"야", inline=False)
     embed.add_field(name=f"-!!도움",value=f"딱히 쓸모없음", inline=False)
-    embed.add_field(name=f"-!!날씨",value=f"날씨를 알려줌", inline=False)
+    embed.add_field(name=f"-!!날씨",value=f"날씨를 알려줌(안됨)", inline=False)
     embed.add_field(name=f"-!!도움_명령어",value=f"명령어 목록", inline=False)
+    embed.add_field(name=f"-!!끝말잇기_시작",value=f"끝말잇기를 시작합니다(AI)", inline=False)
+    embed.add_field(name=f"-!!ㅇ",value=f"!!ㅇ (단어)로 끝말잇기를 이어갈 수 있다.", inline=False)
+    embed.add_field(name=f"-!!ㅇ !포기!",value=f"끝말잇기에서 항복을 요청할 때 쓰임", inline=False)
     await ctx.send(embed=embed)
 
 # @bot.command()
