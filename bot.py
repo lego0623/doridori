@@ -70,7 +70,7 @@ async def on_message(message): #끝말잇기
             if(message.author in num_base_user):
                 user_id_base = num_base_user.index(message.author)
                 if(message.content == "!!ㄹ !포기!"):
-                    await message.channel.send("당신이 졌습니다. /" + num_base_score[user_id_base] + "회 만에 항복")
+                    await message.channel.send("당신이 졌습니다. /" + str(num_base_score[user_id_base]) + "회 만에 항복")
                     del num_baseing[user_id_base]
                     del num_base_user[user_id_base]
                     del num_base_score[user_id_base]
@@ -103,9 +103,12 @@ async def on_message(message): #끝말잇기
                             del num_base_user[user_id_base]
                             del num_base_score[user_id_base]
                             del num_base_home[user_id_base]
+                            print("r")
                         elif(sbo == "BBB"):
+                            print("r23")
                             await message.channel.send("" + message.content[4:7] + ", 0스트라이크/3볼")
-                        else:
+                        elif(not sbo == "NNN" and not sbo == "SSS" and not sbo == "BBB"):
+                            print("r2")
                             strike = 0
                             ball = 0
                             for jklo in range(0, len(sbo)):
@@ -114,7 +117,8 @@ async def on_message(message): #끝말잇기
                                 if(sbo[jklo] == "B"):
                                     ball += 1
                             await message.channel.send("" + message.content[4:7] + ", " + str(strike) + "스트라이크/" + str(ball) + "볼")
-                        num_base_score[user_id_base] += 1
+                        num_base_score[user_id_base] == int(num_base_score[user_id_base]) + 1
+                        print("r2")
                     except:
                         await message.channel.send("!!ㄹ (숫자)로 적어주십시오(숫자는 3자리 숫자입니다. (예:!!ㄹ 123))")
     if(True): # 끝말잇기
