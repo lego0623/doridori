@@ -8,8 +8,8 @@ from bs4 import BeautifulSoup
 import time
 import random
 
-game = discord.Game("@@명령어 입력")
-bot = commands.Bot(command_prefix='@@',Status=discord.Status.online,activity=game,help_command=None)
+game = discord.Game("!!명령어 입력")
+bot = commands.Bot(command_prefix='!!',Status=discord.Status.online,activity=game,help_command=None)
 mafia_game_ready = False
 mafia_gameing = False
 mafia_game_count = 0
