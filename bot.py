@@ -55,36 +55,36 @@ async def 날씨(ctx):
 async def 도움(ctx):
     await ctx.send("나 바빠 본론만 얘기해(!!도움_명령어)")
 
-@bot.command()
-async def 숫자야구_도움():
-    embed = discord.Embed(title=f"숫자야구_사용방법", descriotion=f"도리도리봇", Color=0xf3bb76)
-    embed.add_field(name=f"-!!숫자야구_시작",value=f"숫자야구를 시작한다. (AI)", inline=False)
-    embed.add_field(name=f"-!!ㄹ",value=f"!!ㄹ (숫자)로 여부를 알수 있다.", inline=False)
-    embed.add_field(name=f"-!!ㄹ !포기!",value=f"숫자야구에서 항복을 요청한다.", inline=False)
+# @bot.command()
+# async def 숫자야구_도움():
+#     embed = discord.Embed(title=f"숫자야구_사용방법", descriotion=f"도리도리봇", Color=0xf3bb76)
+#     embed.add_field(name=f"-!!숫자야구_시작",value=f"숫자야구를 시작한다. (AI)", inline=False)
+#     embed.add_field(name=f"-!!ㄹ",value=f"!!ㄹ (숫자)로 여부를 알수 있다.", inline=False)
+#     embed.add_field(name=f"-!!ㄹ !포기!",value=f"숫자야구에서 항복을 요청한다.", inline=False)
 
-@bot.command()
-async def 끝말잇기_도움():
-    embed = discord.Embed(title=f"끝말잇기_사용방법", descriotion=f"도리도리봇", Color=0xf3bb76)
-    embed.add_field(name=f"-!!끝말잇기_시작",value=f"끝말잇기를 시작한다. (AI)", inline=False)
-    embed.add_field(name=f"-!!ㅇ",value=f"!!ㅇ (단어)로 끝말잇기를 이어갈 수 있다.", inline=False)
-    embed.add_field(name=f"-!!ㅇ !포기!",value=f"끝말잇기에서 항복을 요청한다.", inline=False)
+# @bot.command()
+# async def 끝말잇기_도움():
+#     embed = discord.Embed(title=f"끝말잇기_사용방법", descriotion=f"도리도리봇", Color=0xf3bb76)
+#     embed.add_field(name=f"-!!끝말잇기_시작",value=f"끝말잇기를 시작한다. (AI)", inline=False)
+#     embed.add_field(name=f"-!!ㅇ",value=f"!!ㅇ (단어)로 끝말잇기를 이어갈 수 있다.", inline=False)
+#     embed.add_field(name=f"-!!ㅇ !포기!",value=f"끝말잇기에서 항복을 요청한다.", inline=False)
 
-@bot.command()
-async def 끝말잇기_게임방법():
-    embed = discord.Embed(title=f"끝말잇기_규칙", descriotion=f"도리도리봇", Color=0xf3bb76)
-    embed.add_field(name=f"규칙 (1)",value=f"제시된 단어의 끝말을 잇는 단어를 말한다.", inline=False)
-    embed.add_field(name=f"규칙 (2)",value=f"제한시간은 10초이다.", inline=False)
-    embed.add_field(name=f"유의사항",value=f"단어가 봇의 데이터에 없을 수도 있다. 그럴때는 억울해 하면된다.", inline=False)
+# @bot.command()
+# async def 끝말잇기_게임방법():
+#     embed = discord.Embed(title=f"끝말잇기_규칙", descriotion=f"도리도리봇", Color=0xf3bb76)
+#     embed.add_field(name=f"규칙 (1)",value=f"제시된 단어의 끝말을 잇는 단어를 말한다.", inline=False)
+#     embed.add_field(name=f"규칙 (2)",value=f"제한시간은 10초이다.", inline=False)
+#     embed.add_field(name=f"유의사항",value=f"단어가 봇의 데이터에 없을 수도 있다. 그럴때는 억울해 하면된다.", inline=False)
 
-@bot.command()
-async def 숫자야구_게임방법():
-    embed = discord.Embed(title=f"숫자야구_규칙", descriotion=f"도리도리봇", Color=0xf3bb76)
-    embed.add_field(name=f"규칙 (1)",value=f"숫자는 3자리 수임(000~999)", inline=False)
-    embed.add_field(name=f"규칙 (2)",value=f"제한 시간은 없음", inline=False)
-    embed.add_field(name=f"게임규칙 (1)",value=f"숫자가 정답숫자의 포함되어있으면 1볼(예: (정답: 1xx), (자신의 답: x1x))", inline=False)
-    embed.add_field(name=f"게임규칙 (2)",value=f"숫자가 정답숫자의 포함되어있고 위치도 같으면 1스트라이크(예: (정답: 1xx), (자신의 답: 1xx))", inline=False)
-    embed.add_field(name=f"게임규칙 (3)",value=f"숫자가 정답숫자의 포함되어있지않으면 없음(만일 3가지 숫자다 없을 경우 아웃(예: (정답: 123), (자신의 답: 456))", inline=False)
-    embed.add_field(name=f"게임규칙 (4)",value=f"모든 숫자의 위치가 같으면 3스트라이크 즉 게임 승(예: (정답: 123), (자신의 답: 123))", inline=False)
+# @bot.command()
+# async def 숫자야구_게임방법():
+#     embed = discord.Embed(title=f"숫자야구_규칙", descriotion=f"도리도리봇", Color=0xf3bb76)
+#     embed.add_field(name=f"규칙 (1)",value=f"숫자는 3자리 수임(000~999)", inline=False)
+#     embed.add_field(name=f"규칙 (2)",value=f"제한 시간은 없음", inline=False)
+#     embed.add_field(name=f"게임규칙 (1)",value=f"숫자가 정답숫자의 포함되어있으면 1볼(예: (정답: 1xx), (자신의 답: x1x))", inline=False)
+#     embed.add_field(name=f"게임규칙 (2)",value=f"숫자가 정답숫자의 포함되어있고 위치도 같으면 1스트라이크(예: (정답: 1xx), (자신의 답: 1xx))", inline=False)
+#     embed.add_field(name=f"게임규칙 (3)",value=f"숫자가 정답숫자의 포함되어있지않으면 없음(만일 3가지 숫자다 없을 경우 아웃(예: (정답: 123), (자신의 답: 456))", inline=False)
+#     embed.add_field(name=f"게임규칙 (4)",value=f"모든 숫자의 위치가 같으면 3스트라이크 즉 게임 승(예: (정답: 123), (자신의 답: 123))", inline=False)
 
 @bot.command()
 async def 도움_명령어(ctx):
@@ -93,11 +93,11 @@ async def 도움_명령어(ctx):
     embed.add_field(name=f"-!!도움",value=f"딱히 쓸모없음", inline=False)
     embed.add_field(name=f"-!!날씨",value=f"날씨를 알려줌(안됨)", inline=False)
     embed.add_field(name=f"-!!도움_명령어",value=f"명령어 목록", inline=False)
-    embed.add_field(name=f"-!!도움_이진수",value=f"숫자야구 규칙", inline=False)
-    embed.add_field(name=f"-!!끝말잇기_도움",value=f"끝말잇기 사용방법", inline=False)
-    embed.add_field(name=f"-!!끝말잇기_게임방법",value=f"끝말잇기 규칙", inline=False)
-    embed.add_field(name=f"-!!숫자야구_도움",value=f"숫자야구 사용방법", inline=False)
-    embed.add_field(name=f"-!!숫자야구_게임방법",value=f"숫자야구 규칙", inline=False)
+    embed.add_field(name=f"-!!도움_이진수",value=f"아잔슈 명령어 목록", inline=False)
+    # embed.add_field(name=f"-!!끝말잇기_도움",value=f"끝말잇기 사용방법", inline=False)
+    # embed.add_field(name=f"-!!끝말잇기_게임방법",value=f"끝말잇기 규칙", inline=False)
+    # embed.add_field(name=f"-!!숫자야구_도움",value=f"숫자야구 사용방법", inline=False)
+    # embed.add_field(name=f"-!!숫자야구_게임방법",value=f"숫자야구 규칙", inline=False)
     await ctx.send(embed=embed)
 
 @bot.event
