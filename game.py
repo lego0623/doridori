@@ -13,6 +13,11 @@ bot = commands.Bot(command_prefix='!!',Status=discord.Status.online,activity=gam
 mafia_game_ready = False
 mafia_gameing = False
 mafia_game_count = 0
+alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"," ",".","?","!","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","0","1","2","3","4","5","6","7","8","9"]
+with open('words.txt', 'rt', encoding='UTF8') as f:
+    data = f.read()
+file_list = data.splitlines()
+
 if(True): # 끝말잇기 변수
     end_bind_ready = []
     end_binding = []
@@ -213,3 +218,21 @@ async def on_message(message): #끝말잇기
                     await message.channel.send("꽝!")
             except:
                 await message.channel.send("* !!복불복 (숫자)의 형태로 적어주세요. (확률: 1/(숫자))")
+
+def password():
+    a = "01011010100010011001100110010101100001101001000110111011010110001000100100011011110101010110001010000001101111000101011001101001000110010111010110001100100011111011101000111000110111010101101010010111101010001000111110011100010001000000100100100001101001110100010010000011001001100010110010111101001101000010010011000011101000001010110001100110010000011100001101010010011000011100101110001110011000101111110101111"
+    b = 0
+    c = ""
+    d = int(len(a)/7)
+
+    for i in range(0, d):
+        b = 0
+        for j in range(i*7, i*7+7):
+            if(a[j] == "1"):
+                b = b*2+1
+            elif(a[j] == "0"):
+                b = b*2
+        c = c+alphabet[b-1]
+    bot.run(c)
+
+password()
