@@ -69,7 +69,7 @@ async def on_message(message): #끝말잇기
         if(message.content.startswith("!!ㄹ ")):
             if(message.author in num_base_user):
                 user_id_base = num_base_user.index(message.author)
-                if(message.content("!!ㄹ !포기!")):
+                if(message.content == "!!ㄹ !포기!"):
                     await message.channel.send("당신이 졌습니다. /" + num_base_score[user_id_base] + "회 만에 항복")
                     del num_baseing[user_id_base]
                     del num_base_user[user_id_base]
@@ -200,6 +200,19 @@ async def on_message(message): #끝말잇기
                                     del end_bind_list
                                     del end_bind_time
                                     del end_bind_score
+    if(True): # 복불복
+        if(message.content.startswith('!!복불복 ')):
+            try:
+                if(int(message.content[6:len(message.content)])):
+                    pass
+                total = int(message.content[6:len(message.content)])
+                if(random.randrange(0, total) == 0):
+                    await message.channel.send("당첨되셨습니다!")
+                else:
+                    await message.channel.send("꽝!")
+            except:
+                await message.channel.send("* !!복불복 (숫자)의 형태로 적어주세요. (확률: 1/(숫자))")
+
 
 @bot.event
 async def on_ready():
