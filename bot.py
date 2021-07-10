@@ -36,9 +36,9 @@ async def on_ready():
     print("마이야히 마이야하")
 
 @bot.command(name="혁명", pass_context=True)
-async def _HumanRole(ctx, member: discord.Member=None):
-    member = ctx.message.author
-    await member.add_roles(get(ctx.guild.roles, name="관리자"))
+async def HumanRole(ctx, member: discord.Member=None):
+    member = member or ctx.message.author
+    await member.add_roles(get(ctx.guild.roles, name="봇"))
     await ctx.channel.send(str(member)+"에게 역할이 적용되었습니다.")
 
 @bot.command()
